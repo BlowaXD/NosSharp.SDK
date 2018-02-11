@@ -29,7 +29,15 @@ namespace NosSharp.SDK.Components.Character
         public event EventHandler XpGain;
         private void OnXpGain() => XpGain?.Invoke(this, EventArgs.Empty);
 
-#endregion
+        #endregion
+
+
+        #region Reputation
+        /*
+         * Reputation
+         */
+        public uint Reputation;
+        public byte Dignity;
 
         public event EventHandler ReputationChange;
         private void OnReputationChange() => ReputationChange?.Invoke(this, EventArgs.Empty);
@@ -38,16 +46,6 @@ namespace NosSharp.SDK.Components.Character
         private void OnDignityChange() => DignityChange?.Invoke(this, EventArgs.Empty);
 
         #endregion
-
-
-
-
-        /*
-         * Reputation
-         */
-        public uint Reputation;
-        public byte Dignity;
-
 
         /*
          * STATS PVE
