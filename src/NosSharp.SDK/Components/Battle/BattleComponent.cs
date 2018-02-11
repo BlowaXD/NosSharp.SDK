@@ -7,11 +7,20 @@ namespace NosSharp.SDK.Components.Battle
     public class BattleComponent : IComponent
     {
         public event EventHandler Move;
+        private void OnMove() => Move?.Invoke(this, EventArgs.Empty);
+
+
 
         public event EventHandler Death;
         public event EventHandler Kill;
         public event EventHandler DamageDealt;
         public event EventHandler DamageReceived;
+
+
+        private void OnDeath() => Death?.Invoke(this, EventArgs.Empty);
+        private void OnDamageReceived() => DamageReceived?.Invoke(this, EventArgs.Empty);
+        private void OnKill() => Kill?.Invoke(this, EventArgs.Empty);
+        private void OnDamageDealt() => DamageDealt?.Invoke(this, EventArgs.Empty);
 
 
         public Type Type => typeof(BattleComponent);
@@ -38,13 +47,5 @@ namespace NosSharp.SDK.Components.Battle
 
             OnDamageReceived();
         }
-
-        private void OnDamageReceived() => DamageReceived?.Invoke(this, EventArgs.Empty);
-
-        private void OnKill() => Kill?.Invoke(this, EventArgs.Empty);
-
-        private void OnDamageDealt() => DamageDealt?.Invoke(this, EventArgs.Empty);
-
-        private void OnDeath() => Death?.Invoke(this, EventArgs.Empty);
     }
 }
