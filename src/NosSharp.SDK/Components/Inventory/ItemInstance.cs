@@ -4,19 +4,24 @@ using NosSharp.SDK.Enumerations.Inventory;
 
 namespace NosSharp.SDK.Components.Inventory
 {
-    public class ItemComponent : IComponent
+    public class ItemInstance
     {
-        public Type Type => typeof(ItemComponent);
+        /// <summary>
+        /// ItemInstance Guid
+        /// </summary>
+        public Guid Id { get; set; }
 
         /// <summary>
         /// ItemType
         /// </summary>
         public ItemType ItemType { get; set; }
-        
+
         /// <summary>
         /// Item Vnum
         /// </summary>
         public ushort VNum { get; set; }
+
+        public byte Slot { get; set; }
 
         public InventoryType InventoryType { get; set; }
     }

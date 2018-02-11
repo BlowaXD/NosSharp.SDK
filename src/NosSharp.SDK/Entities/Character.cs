@@ -4,6 +4,8 @@ using System.Linq;
 using NosSharp.ECS.Components;
 using NosSharp.ECS.Entities;
 using NosSharp.SDK.Components.Battle;
+using NosSharp.SDK.Components.Character;
+using NosSharp.SDK.Components.Inventory;
 
 namespace NosSharp.SDK.Entities
 {
@@ -11,7 +13,9 @@ namespace NosSharp.SDK.Entities
     {
         private readonly Dictionary<Type, IComponent> _components = new Dictionary<Type, IComponent>
         {
-            {typeof(BattleComponent), new BattleComponent()}
+            { typeof(CharacterComponent), new CharacterComponent() },
+            { typeof(BattleComponent), new BattleComponent() },
+            { typeof(InventoryComponent), new InventoryComponent() }
         };
 
         public long Id { get; }
@@ -29,7 +33,7 @@ namespace NosSharp.SDK.Entities
 
         public T GetComponent<T>() where T : IComponent
         {
-            return (T) GetComponent(typeof(T));
+            return (T)GetComponent(typeof(T));
         }
 
         public IComponent GetComponent(Type type)

@@ -9,7 +9,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Components\Character\" />
     <Folder Include="Events\" />
     <Folder Include="Packets\sentByClient\" />
     <Folder Include="Packets\sentByServer\" />
