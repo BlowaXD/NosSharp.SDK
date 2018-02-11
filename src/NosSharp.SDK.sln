@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NosSharp.SDK", "NosSharp.SDK\NosSharp.SDK.csproj", "{724D375C-3EC1-40CA-B047-495084CEA16B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A25A536F-5C54-495C-B819-B03F3626AD7F} = {A25A536F-5C54-495C-B819-B03F3626AD7F}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FBF2A44D-4D01-4493-9666-56F6BF8B3E95}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{F107594C-8D75-4538-8CB1-3DECFFFE8AAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NosSharp.SDK.Test", "..\test\NosSharp.SDK.Test\NosSharp.SDK.Test.csproj", "{D0380B7F-1647-4717-8F52-EF5A6E88AA41}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NosSharp.ECS", "..\dependencies\NosSharp.ECS\src\NosSharp.ECS\NosSharp.ECS.csproj", "{A25A536F-5C54-495C-B819-B03F3626AD7F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NosSharp.ECS.Test", "..\dependencies\NosSharp.ECS\test\NosSharp.ECS.Test\NosSharp.ECS.Test.csproj", "{738F3E3E-4FE6-43A3-8555-27A8C7FFAFCE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{724D375C-3EC1-40CA-B047-495084CEA16B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{724D375C-3EC1-40CA-B047-495084CEA16B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{724D375C-3EC1-40CA-B047-495084CEA16B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{724D375C-3EC1-40CA-B047-495084CEA16B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0380B7F-1647-4717-8F52-EF5A6E88AA41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0380B7F-1647-4717-8F52-EF5A6E88AA41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0380B7F-1647-4717-8F52-EF5A6E88AA41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0380B7F-1647-4717-8F52-EF5A6E88AA41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A25A536F-5C54-495C-B819-B03F3626AD7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A25A536F-5C54-495C-B819-B03F3626AD7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A25A536F-5C54-495C-B819-B03F3626AD7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A25A536F-5C54-495C-B819-B03F3626AD7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{738F3E3E-4FE6-43A3-8555-27A8C7FFAFCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{738F3E3E-4FE6-43A3-8555-27A8C7FFAFCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{738F3E3E-4FE6-43A3-8555-27A8C7FFAFCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{738F3E3E-4FE6-43A3-8555-27A8C7FFAFCE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{724D375C-3EC1-40CA-B047-495084CEA16B} = {FBF2A44D-4D01-4493-9666-56F6BF8B3E95}
+		{D0380B7F-1647-4717-8F52-EF5A6E88AA41} = {F107594C-8D75-4538-8CB1-3DECFFFE8AAA}
+		{A25A536F-5C54-495C-B819-B03F3626AD7F} = {FBF2A44D-4D01-4493-9666-56F6BF8B3E95}
+		{738F3E3E-4FE6-43A3-8555-27A8C7FFAFCE} = {F107594C-8D75-4538-8CB1-3DECFFFE8AAA}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A9812294-8F6D-42FE-A070-8CEC2FAB5D6A}
+	EndGlobalSection
+EndGlobal
