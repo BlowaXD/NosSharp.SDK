@@ -1,5 +1,6 @@
 ﻿using System;
 using MMOS.ECS.Components;
+using NosSharp.SDK.Events;
 
 namespace NosSharp.SDK.Components.Battle
 {
@@ -9,14 +10,14 @@ namespace NosSharp.SDK.Components.Battle
         private void OnMove() => Move?.Invoke(this, EventArgs.Empty);
 
 
-        public event EventHandler Death;
+        public event EventHandler<DeathEventArg> Death;
         public event EventHandler Kill;
         public event EventHandler DamageDealt;
         public event EventHandler DamageReceived;
         public event EventHandler SkillCasted;
 
 
-        private void OnDeath() => Death?.Invoke(this, EventArgs.Empty);
+        private void OnDeath(DeathEventArg death) => Death?.Invoke(this, death);
         private void OnDamageReceived() => DamageReceived?.Invoke(this, EventArgs.Empty);
         private void OnKill() => Kill?.Invoke(this, EventArgs.Empty);
         private void OnDamageDealt() => DamageDealt?.Invoke(this, EventArgs.Empty);
@@ -41,9 +42,18 @@ namespace NosSharp.SDK.Components.Battle
 
         public void ReceiveDamage(uint damages)
         {
+            ReceiveDamage(damages, null);
+        }
+
+        public void ReceiveDamage(uint damages, BattleComponent damager)
+        {
             if (damages >= Hp)
             {
-                OnDeath();
+                var deathEventArg = new DeathEventArg()
+                {
+                    Killer = damager
+                };
+                OnDeath(deathEventArg);
             }
 
             OnDamageReceived();

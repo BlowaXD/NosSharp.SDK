@@ -26,12 +26,7 @@ namespace NosSharp.SDK.Components.Inventory
 
         public ItemInstance Get(InventoryType invType, byte slot)
         {
-            if (!_items.TryGetValue(invType, out List<ItemInstance> tmp))
-            {
-                return null;
-            }
-
-            return tmp.FirstOrDefault(s => s.Slot == slot);
+            return !_items.TryGetValue(invType, out List<ItemInstance> tmp) ? null : tmp.FirstOrDefault(s => s.Slot == slot);
         }
 
 

@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Events\" />
     <Folder Include="Packets\sentByClient\" />
     <Folder Include="Packets\sentByServer\" />
   </ItemGroup>
