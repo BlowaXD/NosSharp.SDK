@@ -5,13 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\dependencies\NosSharp.ECS\src\NosSharp.ECS\NosSharp.ECS.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Events\" />
     <Folder Include="Packets\sentByClient\" />
     <Folder Include="Packets\sentByServer\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\dependencies\MMOS.ECS\src\MMOS.ECS\MMOS.ECS.csproj" />
   </ItemGroup>
 
 </Project>

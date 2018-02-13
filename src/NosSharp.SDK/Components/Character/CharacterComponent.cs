@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Reflection.Metadata.Ecma335;
-using NosSharp.ECS.Components;
+using MMOS.ECS.Components;
 
 namespace NosSharp.SDK.Components.Character
 {

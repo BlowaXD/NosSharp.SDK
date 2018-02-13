@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.Immutable;
 using System.Linq;
-using NosSharp.ECS.Components;
+using MMOS.ECS.Components;
 using NosSharp.SDK.Enumerations.Inventory;
 
 namespace NosSharp.SDK.Components.Inventory

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using NosSharp.ECS.Components;
-using NosSharp.ECS.Entities;
+using MMOS.ECS.Components;
+using MMOS.ECS.Entities;
 using NosSharp.SDK.Components.Battle;
 using NosSharp.SDK.Components.Character;
 using NosSharp.SDK.Components.Inventory;

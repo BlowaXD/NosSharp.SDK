@@ -1,5 +1,4 @@
 ﻿using System;
-using NosSharp.ECS.Components;
 using NosSharp.SDK.Enumerations.Inventory;
 
 namespace NosSharp.SDK.Components.Inventory
@@ -15,6 +14,9 @@ namespace NosSharp.SDK.Components.Inventory
         /// ItemType
         /// </summary>
         public ItemType ItemType { get; set; }
+
+        public byte Upgrade { get; set; }
+        public byte Rarity { get; set; }
 
         /// <summary>
         /// Item Vnum

@@ -1,6 +1,5 @@
 ﻿using System;
-using NosSharp.ECS.Components;
-using NosSharp.ECS.Entities;
+using MMOS.ECS.Components;
 
 namespace NosSharp.SDK.Components.Battle
 {
