@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NosSharp.SDK.GameObjects
+namespace NosSharp.SDK.Systems
 {
     public class Class1
     {
