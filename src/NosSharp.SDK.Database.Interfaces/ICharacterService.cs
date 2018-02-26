@@ -12,8 +12,7 @@ namespace NosSharp.SDK.Database.Interfaces
 
         void Update(CharacterDto dto);
         void Update(CharacterDto[] dto);
-
-
+        
         CharacterDto GetById(int id);
         CharacterDto GetByName(string name);
 
