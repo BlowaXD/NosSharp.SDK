@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-
-namespace NosSharp.SDK.Enums.InventoryType
+﻿namespace NosSharp.SDK.Enums.Inventory
 {
     public enum InventoryType : byte
     {
@@ -19,8 +13,6 @@ namespace NosSharp.SDK.Enums.InventoryType
         Warehouse = 10,
         FamilyWareHouse = 11,
         PetWarehouse = 12,
-        FirstPartnerInventory = 13,
-        SecondPartnerInventory = 14,
-        ThirdPartnerInventory = 15,
+        Partner = 13,
     }
 }

@@ -1,14 +1,20 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using NosSharp.SDK.Enums.InventoryType;
-using NosSharp.SDK.GameObjects.Item.Instance;
+using System.Linq;
+using NosSharp.SDK.Enums.Inventory;
+using NosSharp.SDK.GameObjects.Items;
+using NosSharp.SDK.GameObjects.Items.Instance;
 
 namespace NosSharp.SDK.GameObjects.Inventory
 {
-    public class Inventory : ConcurrentDictionary<Guid, ItemInstance>
+    public class Inventory
     {
         #region Members
+
+        private Dictionary<Guid, ItemInstance> _itemInstancesByGuid;
+
+        private Dictionary<InventoryType, ICollection<ItemInstance>> _itemInstancesByInventoryType;
 
         // To implement later, when database will be finished 
         private bool CanAddItem(short itemVnum) => false;
@@ -24,7 +30,7 @@ namespace NosSharp.SDK.GameObjects.Inventory
         {
             return null;
         }
-
+        
         public List<ItemInstance> AddNewToInventory(InventoryType type, short vnum, byte amount = 1, sbyte rare = 0, short upgrade = 0, byte design = 0)
         {
             return null;
@@ -45,24 +51,30 @@ namespace NosSharp.SDK.GameObjects.Inventory
 
         }
 
-        public void GetItemFromVnum(short vNum)
+        public ItemInstance GetItemFromVnum(short vNum)
         {
+            // Get this from StaticDataManager
+            Item item = new Item();
 
+
+            if (!_itemInstancesByInventoryType.TryGetValue(item.InventoryType, out ICollection<ItemInstance> itemInstances))
+            {
+                return null;
+            }
+
+            return itemInstances.FirstOrDefault(s => s.Item.VNum == vNum);
         }
 
-        public void GetItemFromItemInstanceId(Guid id)
+        public ItemInstance GetItemFromItemInstanceId(Guid id)
         {
-
+            return !_itemInstancesByGuid.TryGetValue(id, out ItemInstance instance) ? null : instance;
         }
 
-        public ItemInstance LoadByItemInstance(Guid id)
+        public ItemInstance GetBySlotAndType(short slot, InventoryType type)
         {
-            return null;
-        }
-
-        public ItemInstance LoadBySlotAndType(short slot, InventoryType type)
-        {
-            return null;
+            return !_itemInstancesByInventoryType.TryGetValue(type, out ICollection<ItemInstance> itemInstances)
+                ? null
+                : itemInstances.FirstOrDefault(s => s.Slot == slot);
         }
 
         public Tuple<short, InventoryType> DeleteById(Guid id)
