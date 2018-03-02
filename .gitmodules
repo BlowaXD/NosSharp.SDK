@@ -1,3 +1,0 @@
-[submodule "dependencies/MMOS.ECS"]
-	path = dependencies/MMOS.ECS
-	url = git@gitlab.com:GameField/MMOS/MMOS.ECS.git
