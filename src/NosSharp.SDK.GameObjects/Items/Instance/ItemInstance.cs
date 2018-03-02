@@ -11,7 +11,7 @@ namespace NosSharp.SDK.GameObjects.Items.Instance
 
         public RarityType Rarity { get; set; }
 
-        public UpgradeType Upgrade { get; set; }
+        public ushort Upgrade { get; set; }
 
         public byte Slot { get; set; }
     }
