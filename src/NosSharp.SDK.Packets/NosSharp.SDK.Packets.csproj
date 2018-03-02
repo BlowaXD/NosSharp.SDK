@@ -5,11 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="SentByClient\" />
-    <Folder Include="SentByServer\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\NosSharp.SDK.Enums\NosSharp.SDK.Enums.csproj" />
   </ItemGroup>
 

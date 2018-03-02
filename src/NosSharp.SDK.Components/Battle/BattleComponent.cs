@@ -1,8 +1,6 @@
 ﻿// NosSharp
 // BattleComponent.cs
 
-using System;
-using System.ComponentModel;
 using NosSharp.SDK.Components.Battle.Args;
 using NosSharp.SDK.Core.Utilities;
 
