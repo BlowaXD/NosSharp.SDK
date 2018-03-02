@@ -10,6 +10,6 @@ namespace NosSharp.SDK.Components.Inventory
     {
         public static event TypedSenderEventHandler<InventoryComponent, InventoryChangeArgs> InventoryChanged;
 
-        public void OnInventoryChanged(InventoryChangeArgs e) => InventoryChanged?.Invoke(this, e);
+        private void OnInventoryChanged(InventoryChangeArgs e) => InventoryChanged?.Invoke(this, e);
     }
 }
