@@ -1,4 +1,4 @@
-﻿namespace NosSharp.SDK.GameObjects
+﻿namespace NosSharp.SDK.Core
 {
     public interface IClientSession
     {
