@@ -1,11 +1,12 @@
 image: microsoft/dotnet:latest
 
 stages:
-  - build_SDKDTO
+  - build
 
 
 before_script:
   - "dotnet restore"
+
 
 build_SDKDTO:
   stage: build
