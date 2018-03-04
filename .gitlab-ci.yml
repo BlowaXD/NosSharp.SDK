@@ -7,8 +7,56 @@ stages:
 before_script:
   - "dotnet restore"
 
+build SDK.Core:
+  stage: build
+  variables:
+    build_path: "src/NosSharp.SDK.Core"
+  script:
+    - "cd $build_path"
+    - "dotnet build"
 
-build_SDKDTO:
+build SDK.DAL.Interfaces:
+  stage: build
+  variables:
+    build_path: "src/NosSharp.SDK.DAL.Interfaces"
+  script:
+    - "cd $build_path"
+    - "dotnet build"
+    
+build SDK.Enums:
+  stage: build
+  variables:
+    build_path: "src/NosSharp.SDK.Enums"
+  script:
+    - "cd $build_path"
+    - "dotnet build"
+
+build SDK.GameObjects:
+  stage: build
+  variables:
+    build_path: "src/NosSharp.SDK.GameObjects"
+  script:
+    - "cd $build_path"
+    - "dotnet build"
+
+build SDK.Packets:
+  stage: build
+  variables:
+    build_path: "src/NosSharp.SDK.Packets"
+  script:
+    - "cd $build_path"
+    - "dotnet build"
+
+build SDK.Packets:
+  stage: build
+  variables:
+    build_path: "src/NosSharp.SDK.Systems"
+  script:
+    - "cd $build_path"
+    - "dotnet build"
+
+
+build SDK.DTO:
   stage: build
   variables:
     build_path: "src/NosSharp.SDK.DTO"

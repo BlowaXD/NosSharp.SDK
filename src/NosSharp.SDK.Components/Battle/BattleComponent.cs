@@ -9,12 +9,9 @@ namespace NosSharp.SDK.Components.Battle
     /// <summary>
     /// Will use IComponent
     /// </summary>
-    public sealed class BattleComponent
+    public sealed partial class BattleComponent
     {
-        public BattleComponent(BattleEntityType battleEntityType)
-        {
-            BattleEntityType = battleEntityType;
-        }
+        public BattleComponent(BattleEntityType battleEntityType) => BattleEntityType = battleEntityType;
 
         public BattleEntityType BattleEntityType { get; }
 
@@ -28,6 +25,7 @@ namespace NosSharp.SDK.Components.Battle
         public static event TypedSenderEventHandler<BattleComponent, SkillCastArgs> SkillCast;
         public static event TypedSenderEventHandler<BattleComponent, BuffReceivedArgs> BuffReceived;
         public static event TypedSenderEventHandler<BattleComponent, BuffReceivedArgs> DebuffReceived;
+        public static event TypedSenderEventHandler<BattleComponent, BuffReceivedArgs> HealthRegen;
 
         private void OnHit(HitArgs e) => Hit?.Invoke(this, e);
         private void OnHitReceived(HitArgs e) => HitReceived?.Invoke(this, e);
@@ -36,10 +34,10 @@ namespace NosSharp.SDK.Components.Battle
         private void OnSkillCast(SkillCastArgs e) => SkillCast?.Invoke(this, e);
         private void OnBuffRececived(BuffReceivedArgs e) => BuffReceived?.Invoke(this, e);
         private void OnDebuffReceived(BuffReceivedArgs e) => DebuffReceived?.Invoke(this, e);
+        private void OnHealthRegen(BuffReceivedArgs e) => HealthRegen?.Invoke(this, e);
 
 
         public static event TypedSenderEventHandler<BattleComponent, MoveArgs> Move;
         private void OnMove(MoveArgs e) => Move?.Invoke(this, e);
-
     }
 }
