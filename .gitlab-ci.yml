@@ -1,0 +1,16 @@
+image: microsoft/dotnet:latest
+
+stages:
+  - build_SDKDTO
+
+
+before_script:
+  - "dotnet restore"
+
+build_SDKDTO:
+  stage: build
+  variables:
+    build_path: "src/NosSharp.SDK.DTO"
+  script:
+    - "cd $build_path"
+    - "dotnet build"
