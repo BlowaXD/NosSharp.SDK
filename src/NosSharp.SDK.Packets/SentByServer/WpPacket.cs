@@ -5,6 +5,11 @@ namespace NosSharp.SDK.Packets.SentByServer
     [PacketHeader("wp")]
     public class WpPacket : PacketBase
     {
+        public WpPacket() : base(typeof(WpPacket))
+        {
+
+        }
+
         #region Properties
 
         [PacketIndex(2)]

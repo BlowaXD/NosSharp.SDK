@@ -11,13 +11,21 @@ namespace NosSharp.SDK.Packets.SentByClient
     [PacketHeader("addobj")]
     public class AddobjPacket : PacketBase
     {
+        public AddobjPacket() : base(typeof(AddobjPacket))
+        {
+        }
+
         #region Properties
+
         [PacketIndex(0)]
         public short Slot { get; set; }
+
         [PacketIndex(1)]
         public short PositionX { get; set; }
+
         [PacketIndex(2)]
         public short PositionY { get; set; }
+
         #endregion
     }
 }

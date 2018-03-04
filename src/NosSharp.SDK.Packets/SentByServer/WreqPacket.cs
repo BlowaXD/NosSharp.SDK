@@ -5,6 +5,11 @@ namespace NosSharp.SDK.Packets.SentByServer
     [PacketHeader("wreq")]
     public class WreqPacket : PacketBase
     {
+        public WreqPacket() : base(typeof(WreqPacket))
+        {
+
+        }
+
         #region Properties
 
         [PacketIndex(1)]

@@ -8,10 +8,17 @@ namespace NosSharp.SDK.Packets.SentByServer
     [PacketHeader("sub_buff")]
     public class BuffSubPacket : PacketBase
     {
-        [PacketIndex(0)] public int Value { get; set; } // uses left of buff, used for example for rarifying
+        public BuffSubPacket() : base(typeof(BuffSubPacket))
+        {
+        }
 
-        [PacketIndex(1)] public int BuffId { get; set; }
+        [PacketIndex(0)]
+        public int Value { get; set; } // uses left of buff, used for example for rarifying
 
-        [PacketIndex(2)] public int Duration { get; set; } // divided by 10
+        [PacketIndex(1)]
+        public int BuffId { get; set; }
+
+        [PacketIndex(2)]
+        public int Duration { get; set; } // divided by 10
     }
 }
