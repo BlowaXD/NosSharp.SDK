@@ -68,7 +68,7 @@ build SDK.DTO:
 test SDK.Core:
   stage: test
   variables:
-    build_path: "test/NosSharp.SDK.Core"
+    build_path: "test/NosSharp.SDK.Core.Test"
   script:
     - "cd $build_path"
     - "dotnet test"
