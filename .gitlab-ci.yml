@@ -2,6 +2,7 @@ image: microsoft/dotnet:latest
 
 stages:
   - build
+  - test
 
 
 before_script:
@@ -63,3 +64,11 @@ build SDK.DTO:
   script:
     - "cd $build_path"
     - "dotnet build"
+
+test SDK.Core:
+  stage: build
+  variables:
+    build_path: "test/NosSharp.SDK.Core"
+  script:
+    - "cd $build_path"
+    - "dotnet test"

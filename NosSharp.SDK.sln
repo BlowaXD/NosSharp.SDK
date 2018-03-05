@@ -21,6 +21,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NosSharp.SDK.DAL.Interfaces
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NosSharp.SDK.Core", "src\NosSharp.SDK.Core\NosSharp.SDK.Core.csproj", "{7AF0975F-6F8B-40E9-B5B5-93BA2C79A8A1}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{84E00067-326E-47E4-B32C-2A4CA821E65D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NosSharp.SDK.Core.Test", "test\NosSharp.SDK.Core.Test\NosSharp.SDK.Core.Test.csproj", "{7A0FB06A-5914-4248-A225-85B47B7970CE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +63,10 @@ Global
 		{7AF0975F-6F8B-40E9-B5B5-93BA2C79A8A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7AF0975F-6F8B-40E9-B5B5-93BA2C79A8A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7AF0975F-6F8B-40E9-B5B5-93BA2C79A8A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A0FB06A-5914-4248-A225-85B47B7970CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A0FB06A-5914-4248-A225-85B47B7970CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A0FB06A-5914-4248-A225-85B47B7970CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A0FB06A-5914-4248-A225-85B47B7970CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,6 +80,7 @@ Global
 		{0F269CF1-7410-452F-944D-CCBE98C8F2CE} = {2887CC0E-BDCB-4BCD-A6F4-FE8EFBE4E09B}
 		{510C9148-5342-4FA6-A5F5-DB58C9F888C6} = {2887CC0E-BDCB-4BCD-A6F4-FE8EFBE4E09B}
 		{7AF0975F-6F8B-40E9-B5B5-93BA2C79A8A1} = {2887CC0E-BDCB-4BCD-A6F4-FE8EFBE4E09B}
+		{7A0FB06A-5914-4248-A225-85B47B7970CE} = {84E00067-326E-47E4-B32C-2A4CA821E65D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {04BC3B4B-19EF-4003-B553-9116CAE3BD25}
