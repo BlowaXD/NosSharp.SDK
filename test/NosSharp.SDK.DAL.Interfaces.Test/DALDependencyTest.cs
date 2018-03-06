@@ -1,6 +1,4 @@
 using System;
-using System.IO;
-using NosSharp.SDK.Core.Configuration;
 using NosSharp.SDK.Core.Helper;
 using Xunit;
 
@@ -24,13 +22,41 @@ namespace NosSharp.SDK.DAL.Interfaces.Test
         }
     }
 
+    public class RatesConfiguration
+    {
+        public RatesConfiguration()
+        {
+            XpRate = 1;
+            JobXpRate = 1;
+            HeroXpRate = 1;
+            DropRate = 1;
+            DropRarityRate = 1;
+            DropQuantityRate = 1;
+        }
+
+        public int XpRate { get; set; }
+        public int JobXpRate { get; set; }
+        public int HeroXpRate { get; set; }
+
+        public int DropRate { get; set; }
+        public int DropRarityRate { get; set; }
+        public int DropQuantityRate { get; set; }
+
+        public int ReputationRate { get; set; }
+        public bool ReputationOnKill { get; set; }
+
+        public int UpgradeRate { get; set; }
+        public int RarifyRate { get; set; }
+    }
+
     public class FileTestRateService : IRateService
     {
         private RatesConfiguration _configuration;
         private readonly string _configurationPath;
-        public FileTestRateService(string path)
+
+        public FileTestRateService()
         {
-            _configurationPath = path;
+            _configurationPath = "./config/rates.json";
             _configuration = ConfigurationHelper.Load<RatesConfiguration>(_configurationPath, true);
         }
 
@@ -59,9 +85,8 @@ namespace NosSharp.SDK.DAL.Interfaces.Test
         [Fact]
         public void BasicDalDependencyTest()
         {
-            var obj = new TestRateService();
-            DependencyContainer.Instance.Register<IRateService>(obj);
-            var dump = DependencyContainer.Instance.Get<IRateService>();
+            DependencyContainer<IRateService>.Register<TestRateService>();
+            var dump = DependencyContainer<IRateService>.Get();
             Assert.Equal(1, dump.XpRate);
             Assert.Equal(1, dump.JobXpRate);
             Assert.Equal(1337, dump.HeroXpRate);
@@ -74,12 +99,14 @@ namespace NosSharp.SDK.DAL.Interfaces.Test
         public void AdvancedDalDependencyTest()
         {
             const string ratesPath = "./config/rates.json";
-            var obj = new FileTestRateService(ratesPath);
-            DependencyContainer.Instance.Register<IRateService>(obj);
-            var dep = DependencyContainer.Instance.Get<IRateService>();
+            DependencyContainer<IRateService>.Register<FileTestRateService>();
+            var dep = DependencyContainer<IRateService>.Get();
             RatesConfiguration conf = ConfigurationHelper.Load<RatesConfiguration>(ratesPath);
             Assert.Equal(conf.XpRate, dep.XpRate);
-            conf.XpRate = 25;
+            random:
+            conf.XpRate = new Random().Next(100);
+            if (conf.XpRate == dep.XpRate)
+                goto random;
             Assert.NotEqual(conf.XpRate, dep.XpRate);
             ConfigurationHelper.Save(ratesPath, conf);
             // UPDATE THE CONFIG

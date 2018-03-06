@@ -2,7 +2,6 @@
 // IAuctionService.cs
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using NosSharp.SDK.DTO;
 using NosSharp.SDK.Enums.Auction;

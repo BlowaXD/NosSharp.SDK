@@ -10,21 +10,17 @@ namespace NosSharp.SDK.Core.Helper
     /// <summary>
     /// Singleton container that will hold objects
     /// </summary>
-    public class DependencyContainer : Singleton<DependencyContainer>
+    public static class DependencyContainer<TService> where TService : class
     {
-        /// <summary>
-        /// Hold dependencies instances
-        /// </summary>
-        private readonly Dictionary<Type, object> _dependencies = new Dictionary<Type, object>();
+        private static Lazy<TService> _instance;
 
         /// <summary>
         /// Register
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="object"></param>
-        public void Register<T>(T @object)
+        /// <typeparam name="TDependency"></typeparam>
+        public static void Register<TDependency>() where TDependency : TService, new()
         {
-            _dependencies[typeof(T)] = @object;
+            _instance = new Lazy<TService>(() => new TDependency());
         }
 
 
@@ -33,22 +29,9 @@ namespace NosSharp.SDK.Core.Helper
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public T Get<T>() where T : class
+        public static TService Get()
         {
-            return !_dependencies.TryGetValue(typeof(T), out object dep) ? null : dep as T;
-        }
-
-        /// <summary>
-        /// Get an instance of Type <typeparamref name="T"/>
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="dependency"></param>
-        /// <returns></returns>
-        public bool Get<T>(out T dependency) where T : class, new()
-        {
-            bool test = _dependencies.TryGetValue(typeof(T), out object obj);
-            dependency = obj as T;
-            return test;
+            return _instance.Value;
         }
     }
 }
