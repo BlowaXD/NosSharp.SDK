@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace NosSharp.SDK.Core.Helper
 {
-    public class ConfigurationLoader
+    public class ConfigurationHelper
     {
         public static T Load<T>(string path) where T : class, new() => Load<T>(path, false);
 

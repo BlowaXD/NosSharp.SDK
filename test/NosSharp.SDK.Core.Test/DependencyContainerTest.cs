@@ -25,6 +25,7 @@ namespace NosSharp.SDK.Core.Test
             DependencyContainer.Instance.Register<IDependencyTest>(objtest);
 
             Assert.NotNull(DependencyContainer.Instance.Get<IDependencyTest>());
+            Assert.Equal(objtest.GetHashCode(), DependencyContainer.Instance.Get<IDependencyTest>().GetHashCode());
         }
     }
 }
