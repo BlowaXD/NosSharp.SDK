@@ -72,3 +72,11 @@ test SDK.Core:
   script:
     - "cd $build_path"
     - "dotnet test"
+
+test SDK.DAL.Interfaces:
+  stage: test
+  variables:
+    build_path: "test/NosSharp.SDK.DAL.Interfaces.Test"
+  script:
+    - "cd $build_path"
+    - "dotnet test"
