@@ -3,6 +3,7 @@
 namespace NosSharp.SDK.Packets.SentByServer
 {
     [PacketHeader("wreq")]
+    [PacketPropertySplitter(' ')]
     public class WreqPacket : PacketBase
     {
         public WreqPacket() : base(typeof(WreqPacket))
