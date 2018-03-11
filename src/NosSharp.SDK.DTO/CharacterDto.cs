@@ -38,6 +38,24 @@ namespace NosSharp.SDK.DTO
         public HairStyleType HairType { get; set; }
 
         public string Name { get; set; }
+
+
+        /*
+         * LEVELS
+         */
+        public short Level { get; set; }
+        public int LevelXp { get; set; }
+
+        public short JobLevel { get; set; }
+        public int JobLevelXp { get; set; }
+
+        public short HeroLevel { get; set; }
+        public int HeroLevelXp { get; set; }
+
+        public int Reputation { get; set; }
+        public int Compliment { get; set; }
+        public byte Dignity { get; set; }
+
         public CharacterStatsDto Stats { get; set; }
     }
 }
