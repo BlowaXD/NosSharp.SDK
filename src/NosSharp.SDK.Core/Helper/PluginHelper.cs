@@ -21,13 +21,13 @@ namespace NosSharp.SDK.Core.Helper
                 throw new ArgumentNullException(nameof(directoryPath));
             }
 
-            List<T> plugins = new List<T>();
             if (!Directory.Exists(directoryPath))
             {
                 Directory.CreateDirectory(directoryPath);
                 return null;
             }
 
+            List<T> plugins = new List<T>();
             foreach (string file in Directory.GetFiles(directoryPath, "*.dll"))
             {
                 plugins.AddRange(LoadPlugins<T>(new FileInfo(file)));
@@ -48,8 +48,7 @@ namespace NosSharp.SDK.Core.Helper
             {
                 throw new ArgumentNullException(nameof(file));
             }
-
-            AssemblyName assemblyName = AssemblyName.GetAssemblyName(file.FullName);
+            
             Assembly assembly = Assembly.LoadFrom(file.FullName);
 
             if (assembly == null)
@@ -60,7 +59,6 @@ namespace NosSharp.SDK.Core.Helper
             Type[] types = assembly.GetTypes();
             Type pluginType = typeof(T);
             ICollection<Type> pluginTypes = types.Where(type => !type.IsInterface && !type.IsAbstract).Where(type => type.GetInterface(pluginType.FullName) != null).ToArray();
-
             ICollection<T> plugins = new List<T>(pluginTypes.Count);
             foreach (Type type in pluginTypes)
             {
