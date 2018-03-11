@@ -85,8 +85,8 @@ namespace NosSharp.SDK.DAL.Interfaces.Test
         [Fact]
         public void BasicDalDependencyTest()
         {
-            DependencyContainer<IRateService>.Register<TestRateService>();
-            var dump = DependencyContainer<IRateService>.Get();
+            GenericDependencyContainer<IRateService>.Register<TestRateService>();
+            var dump = GenericDependencyContainer<IRateService>.Get();
             Assert.Equal(1, dump.XpRate);
             Assert.Equal(1, dump.JobXpRate);
             Assert.Equal(1337, dump.HeroXpRate);
@@ -99,14 +99,17 @@ namespace NosSharp.SDK.DAL.Interfaces.Test
         public void AdvancedDalDependencyTest()
         {
             const string ratesPath = "./config/rates.json";
-            DependencyContainer<IRateService>.Register<FileTestRateService>();
-            var dep = DependencyContainer<IRateService>.Get();
-            RatesConfiguration conf = ConfigurationHelper.Load<RatesConfiguration>(ratesPath);
+            GenericDependencyContainer<IRateService>.Register<FileTestRateService>();
+            IRateService dep = GenericDependencyContainer<IRateService>.Get();
+            var conf = ConfigurationHelper.Load<RatesConfiguration>(ratesPath);
             Assert.Equal(conf.XpRate, dep.XpRate);
             random:
             conf.XpRate = new Random().Next(100);
             if (conf.XpRate == dep.XpRate)
+            {
                 goto random;
+            }
+
             Assert.NotEqual(conf.XpRate, dep.XpRate);
             ConfigurationHelper.Save(ratesPath, conf);
             // UPDATE THE CONFIG

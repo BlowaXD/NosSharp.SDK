@@ -19,8 +19,8 @@ namespace NosSharp.SDK.Core.Test
         public void TestDependencyContainer()
         {
             // register an instance of IDependencyTest for Inversion of Control
-            DependencyContainer<IDependencyTest>.Register<DependencyTestDependency>();
-            Assert.NotNull(DependencyContainer<IDependencyTest>.Get());
+            GenericDependencyContainer<IDependencyTest>.Register<DependencyTestDependency>();
+            Assert.NotNull(GenericDependencyContainer<IDependencyTest>.Get());
         }
     }
 }
