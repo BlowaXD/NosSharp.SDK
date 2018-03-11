@@ -15,9 +15,9 @@ namespace NosSharp.SDK.DTO
 
         public string Email { get; set; }
 
-        public string CreationEmail { get; set; }
+        public string RegistrationEmail { get; set; }
 
-        public string IpRegistration { get; set; }
+        public string RegistrationIp { get; set; }
 
         public int Money { get; set; }
 

@@ -1,37 +1,34 @@
-﻿// NosSharp.SDK
-// DependencyContainer.cs
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using NosSharp.SDK.Core.Utilities;
 
 namespace NosSharp.SDK.Core.Helper
 {
     /// <summary>
-    /// Singleton container that will hold objects
+    /// Singleton that holds instances of objects
     /// </summary>
-    public static class DependencyContainer<TService> where TService : class
+    public class DependencyContainer : Singleton<DependencyContainer>
     {
-        private static Lazy<TService> _instance;
+        private readonly Dictionary<Type, object> _objects = new Dictionary<Type, object>();
 
         /// <summary>
-        /// Register
+        /// Register an instance of <typeparamref name="T"/>
         /// </summary>
-        /// <typeparam name="TDependency"></typeparam>
-        public static void Register<TDependency>() where TDependency : TService, new()
+        /// <typeparam name="T"></typeparam>
+        /// <param name="instance"></param>
+        public void Register<T>(T instance) where T : class
         {
-            _instance = new Lazy<TService>(() => new TDependency());
+            _objects[typeof(T)] = instance;
         }
 
-
         /// <summary>
-        /// Get an instance of <see cref="Type"/> <typeparamref name="T"/> and returns it
+        /// Get the instance that deserve the <see cref="Type"/> given as the typeparam
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static TService Get()
+        public T Get<T>() where T : class
         {
-            return _instance.Value;
+            return !_objects.TryGetValue(typeof(T), out object instance) ? null : instance as T;
         }
     }
 }
