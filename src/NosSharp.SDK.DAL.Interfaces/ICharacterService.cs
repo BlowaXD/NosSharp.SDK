@@ -14,6 +14,9 @@ namespace NosSharp.SDK.DAL.Interfaces
         void Update(CharacterDto dto);
         void Update(CharacterDto[] dto);
 
+        void Delete(CharacterDto dto);
+        void Delete(CharacterDto[] dtos);
+
         CharacterDto GetById(int id);
         CharacterDto GetByName(string name);
 
