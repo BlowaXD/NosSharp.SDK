@@ -2,6 +2,7 @@
 
 namespace NosSharp.SDK.Packets.Serialization
 {
+    [AttributeUsage(AttributeTargets.Property)]
     public class PacketIndexAttribute : Attribute
     {
         #region Instantiation
@@ -12,8 +13,7 @@ namespace NosSharp.SDK.Packets.Serialization
         /// <param name="index">The zero based index starting from header (exclusive).</param>
         /// <param name="isReturnPacket">Adds an # to the Header and replaces Spaces with ^ if set to true.</param>
         /// <param name="serializeToEnd">Defines if everything from this index should be serialized into the underlying property</param>
-        /// <param name="removeSeparator">Removes
-        /// the separator (.) for List<PacketDefinition> packets.</param>
+        /// <param name="removeSeparator">Removes the separator (.) for List<PacketDefinition/> packets.</param>
         public PacketIndexAttribute(int index, bool isReturnPacket = false, bool serializeToEnd = false, bool removeSeparator = false)
         {
             Index = index;
@@ -36,7 +36,7 @@ namespace NosSharp.SDK.Packets.Serialization
         /// </summary>
         public bool IsReturnPacket { get; set; }
 
-        /// <summary> Removes the separator (.) for List<PacketDefinition> packets. </summary>
+        /// <summary> Removes the separator (.) for List<PacketDefinition/> packets. </summary>
         public bool RemoveSeparator { get; set; }
 
         /// <summary>

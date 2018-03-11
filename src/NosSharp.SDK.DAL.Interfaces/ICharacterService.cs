@@ -2,8 +2,9 @@
 // ICharacterService.cs
 
 using NosSharp.SDK.DTO;
+using NosSharp.SDK.Enums.Character;
 
-namespace NosSharp.SDK.Database.Interfaces
+namespace NosSharp.SDK.DAL.Interfaces
 {
     public interface ICharacterService
     {
@@ -17,10 +18,13 @@ namespace NosSharp.SDK.Database.Interfaces
         CharacterDto GetByName(string name);
 
         CharacterDto[] GetByAccountId(int id);
+        CharacterDto GetByAccountIdAndSlot(int id, PlayerSlotType slot);
         CharacterDto[] GetByAccountName(string name);
-        CharacterDto[] GetByAccountNameAndSlot(string name, byte? slot);
+        CharacterDto GetByAccountNameAndSlot(string name, PlayerSlotType slot);
 
         CharacterDto[] GetTop();
         CharacterDto[] GetTop(int limitNumber);
+
+        CharacterDto GetBaseCharacter();
     }
 }
